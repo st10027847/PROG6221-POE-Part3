@@ -1,0 +1,60 @@
+﻿<Window x:Class="POE_Part3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe App" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Recipes" Grid.Row="0">
+            <ListBox x:Name="RecipesListBox" SelectionChanged="RecipesListBox_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+
+        <GroupBox Header="Recipe Details" Grid.Row="1">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Recipe Name:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0" />
+                    <TextBox x:Name="RecipeNameTextBox" Grid.Row="0" Grid.Column="1" />
+
+                    <Button Content="Add Ingredients" Click="AddIngredientsButton_Click" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,10,0,0" />
+
+                    <StackPanel x:Name="IngredientsStackPanel" Grid.Row="2" Grid.ColumnSpan="2" />
+
+                    <TextBlock Text="Recipe Steps:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,5,0" />
+                    <TextBox x:Name="RecipeStepsTextBox" Grid.Row="3" Grid.Column="1" Height="100" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+
+                    <StackPanel x:Name="StepsStackPanel" Grid.Row="4" Grid.ColumnSpan="2" />
+
+                    <Button Content="Add Recipe" Click="AddRecipeButton_Click" Grid.Row="5" Grid.ColumnSpan="2" Margin="0,10,0,0" />
+                    <Button Content="Display Recipe" Click="DisplayRecipeButton_Click" Grid.Row="6" Grid.ColumnSpan="2" Margin="0,5,0,0" />
+                    <Button Content="List Recipes" Click="ListRecipesButton_Click" Grid.Row="7" Grid.ColumnSpan="2" Margin="0,5,0,0" />
+                    <Button Content="Clear Recipes" Click="ClearRecipesButton_Click" Grid.Row="8" Grid.ColumnSpan="2" Margin="0,5,0,0" />
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
